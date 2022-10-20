@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+<div class="container my-5">
+    <h1>Contact us</h1>
+    <p class="text-justify">Write to us and we will reach out to you within 24 hours.</p>
+    <form action="/contact" method="post">
+        <div class="mb-3">
+            <label for="nameInput" class="form-label">Your full name</label>
+            <input type="text" class="form-control" id="nameInput" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="phoneInput" class="form-label">Your phone number</label>
+            <input type="phone" class="form-control" id="phoneInput" name="phone">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<%- include("../partials/footer") %>

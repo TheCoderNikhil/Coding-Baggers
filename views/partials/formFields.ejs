@@ -1,0 +1,21 @@
+<script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+
+<div class="mb-3">
+    <label for="titleInput" class="form-label">Title</label>
+    <input type="text" value="<%= article.title %>" class="form-control" id="titleInput" name="title">
+</div>
+<div class="mb-3">
+    <label for="descInput" class="form-label">Description</label>
+    <input type="text" value="<%= article.description %>" class="form-control" id="descInput" name="description">
+</div>
+<div class="mb-3">
+    <textarea name="markdown" id="editor"><%= article.sanitizedHtml %></textarea>
+</div>
+<div class="mb-3">
+    <input type="file" id="image" name="image" required>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>

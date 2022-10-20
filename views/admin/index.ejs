@@ -1,0 +1,60 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Admin Panel</h1>
+            <p class="lead text-muted">Welcome to the Admin Panel, a tool that allows you to manage content and create new pages.</p>
+            <p>
+                <a href="#articles" class="btn btn-primary my-2">Manage Articles</a>
+                <a href="#" class="btn btn-secondary my-2">Manage Videos</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="album py-5 my-5 bg-light" id="articles">
+    <div class="container">
+        <h1 class="fst-normal">Articles</h1>
+        <form action="/admin/articles/add">
+            <button type="submit" class="btn btn-success btn-lg my-3">Add Article</button>
+        </form>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">   
+            <% if(articles.length === 0 ){ %>
+                <h3 class="py-3 fst-lighter">No articles available to show.</h3>
+            <% } else { %>
+            <% articles.forEach(function(article){ %>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="data:image/<%=article.img.contentType%>;base64,
+                    <%=article.img.data.toString('base64')%>">
+
+                    <div class="card-body">
+                        <p class="card-text"><%= article.title %> </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <form action="/admin/articles/<%=article.slug%>" method="get">
+                                    <button type="submit" class="btn btn-outline-secondary">View</button>
+                                </form>
+                                <form action="/admin/articles/edit/<%=article.slug%>" method="get">
+                                    <button type="submit" class="btn btn-outline-success">Edit</button>
+                                </form>
+                                <form action="/admin/articles/<%=article.slug%>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                </form>
+                            </div>
+                            <small class="text-muted"><%= article.createdAt.toLocaleDateString() %></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+            <% } %>
+        </div>
+    </div>
+</div>
+</main>
+<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
+<%- include("../partials/footer") %>
