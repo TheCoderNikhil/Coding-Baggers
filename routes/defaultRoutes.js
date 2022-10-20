@@ -1,39 +1,36 @@
-const express = require('express');
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
 const {
-    getIndexPage,
-    getContactPage,
-    submitContactPage,
-    getAboutPage,
-    getArticlePage,
-    getLoginPage,
-    submitLoginPage,
-    getSignupPage,
-    submitSignupPage,
-    logout
-} = require('../controllers/defaultController')
-const {
-    validateUser,
-  } = require('../middlewares/validators/userValidator')
-  
-router.get('/', getIndexPage)
+  getIndexPage,
+  getContactPage,
+  submitContactPage,
+  getAboutPage,
+  getArticlePage,
+  getLoginPage,
+  submitLoginPage,
+  getSignupPage,
+  submitSignupPage,
+  logout,
+} = require("../controllers/defaultController");
+const { validateUser } = require("../middlewares/validators/userValidator");
 
-router.get('/login', getLoginPage)
-router.get('/logout', logout)
+router.get("/", getIndexPage);
+// router.get('/', getIndexPage)
 
-router.route("/signup")
-  .post(validateUser, submitSignupPage)
-  .get(getSignupPage)
+// add some comments
 
-router.post('/login', submitLoginPage);
+router.get("/login", getLoginPage);
+router.get("/logout", logout);
 
-router.get('/about', getAboutPage)
+router.route("/signup").post(validateUser, submitSignupPage).get(getSignupPage);
 
-router.get('/articles/:slug', getArticlePage)
+router.post("/login", submitLoginPage);
 
-router.route('/contact')
-    .get(getContactPage)
-    .post(submitContactPage)
+router.get("/about", getAboutPage);
 
-module.exports = router
+router.get("/articles/:slug", getArticlePage);
+
+router.route("/contact").get(getContactPage).post(submitContactPage);
+
+module.exports = router;
