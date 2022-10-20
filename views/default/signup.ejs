@@ -1,0 +1,38 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+<link href="/css/signup.css" rel="stylesheet">
+<main class="form-signin">
+    <form action="/signup" method="POST">
+        <img class="mb-4" src="/images/adventure__waving.svg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Join us today!</h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingFirstName" name="firstName" placeholder="First Name" >
+            <label for="floatingFirstName">First Name</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingLastName" name="lastName" placeholder="Last Name">
+            <label for="floatingLastName">Last Name</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="email" class="form-control" id="floatingEmail" name="email" placeholder="name@example.com">
+            <label for="floatingEmail">Email address</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingConfirmPassword" name="confirmPassword" placeholder="Confirm Password">
+            <label for="floatingConfirmPassword">Confirm Password</label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+    </form>
+</main>
+<%- include("../partials/footer") %>
