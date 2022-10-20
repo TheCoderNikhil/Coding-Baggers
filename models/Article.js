@@ -35,6 +35,7 @@ const articleSchema = mongoose.Schema({
   },
   required: {
     type: Boolean,
+    required: false,
   },
   img: {
     data: Buffer,
